@@ -201,7 +201,7 @@ def process(img_bgr, debug):
 
 
   # STEP 4
-  contours, hierarchy = cv.findContours(img_binary, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+  _, contours, hierarchy = cv.findContours(img_binary, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
   if debug:
     for cnt in contours:
@@ -232,7 +232,7 @@ def process(img_bgr, debug):
 
 
 current_file_path = os.path.dirname(os.path.realpath(__file__))
-cascade = cv.CascadeClassifier(cv.samples.findFile(current_file_path + "\haarcascade_frontalface_alt.xml"))
+cascade = cv.CascadeClassifier(cv.samples.findFile(cv.data.haarcascade + "haarcascade_frontalface_alt.xml"))
 
 
 # cap = cv.VideoCapture('test.avi')
